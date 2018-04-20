@@ -1,8 +1,10 @@
 {
   "plugins": ["theme-api", "anchors", "hints", "expandable-chapters", "page-toc" ],
   "pluginsConfig": {
-     "selector": ".markdown-section h1",
-     "position": "before-first",
-     "showByDefault": true
+    "page-toc": {
+      "selector": ".markdown-section h1",
+      "position": "before-first",
+      "showByDefault": true
+    }
   }
 }
