@@ -43,6 +43,7 @@
 * [Hosting Services](hosting-services/readme.md)
 * [Analytics](analytics/readme.md)
 * [Formatting](formatting.md)
+* [Notes](notes.md)
 
 
 
