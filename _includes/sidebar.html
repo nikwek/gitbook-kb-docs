@@ -1,0 +1,32 @@
+<div class="sidebar-search">
+    <form class="search" method="get" action="https://google.com/search">
+        <label for="search-input"><i class="fa fa-search" aria-hidden="true"></i></label>
+        <input type="text" name="q" value="" placeholder="Search docs..." tabindex="1" id="search-input">
+        <input type="hidden" name="sitesearch" value="help.papertrailapp.com" checked="">
+    </form>
+</div>
+<div class="clear"></div>
+{% assign collections = (site.collections | sort: 'order') %}
+{% for collection in collections %}
+    {% assign category_title = collection.title %}
+    {% assign category_label = collection.label %}
+    {% if category_label != "posts" %}
+    <div class="navigation-box">
+        <h3 class="navigation-header" data-trigger="{{ category_label }}" data-titleize="true">
+            {{ category_title }}
+        </h3>
+        <ul class="navigation-links" data-titleize="true" data-menu="{{ category_label }}" style="display:{% if page.category contains category_label %}block{% else %}none{% endif %};">
+            {% assign pages = collection.docs | sort: 'order' %}
+            {% for _page in pages %}
+                {% if _page.show_in_sidebar != false %}
+                    <li data-order="{{ _page.order }}" data-menu="{{ category_label }}" class="{% if page.url == _page.url %}active{% endif %}">
+                        <a href="{{ site.baseurl }}{{ _page.url }}">
+                            {% if _page.sidebar_title %}{{ _page.sidebar_title }}{% else %}{{ _page.title }}{% endif %}
+                        </a>
+                    </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+{% endfor %}
