@@ -1,10 +1,14 @@
 {
-  "plugins": ["theme-api", "anchors", "hints", "expandable-chapters", "page-toc" ],
+  "plugins": ["theme-api", "anchors", "hints", "expandable-chapters", "page-toc", "edit-link", "codetabs"],
   "pluginsConfig": {
     "page-toc": {
-      "selector": ".markdown-section h1",
-      "position": "before-first",
+      "selector": ".markdown-section h1, .markdown-section h2",
+      "position": "top",
       "showByDefault": true
+    },
+    "edit-link": {
+        "base": "https://github.com/niklibrato/gitbook-kb-docs/blob/master/",
+        "label": "Edit This Page"
     }
   }
 }
